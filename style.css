@@ -462,25 +462,6 @@
    /* location end */
 
 
-   /* .timeline-wrapper{
-        display: flex;
-        gap: 10px;
-    }
-
-   
-
-
-
-    .timeline-wrapper .time-box{
-        max-width: 100%;
-        display: flex;
-        padding: 20px;
-        flex-direction: column;
-        gap: 10px;
-        border-radius: var(--border-radius);
-        background-color: var(--color-text-secondary);
-    } */
-
      .timeline-wrapper {
         display: flex;
         gap: 10px;
@@ -506,6 +487,7 @@
      .timeline-wrapper .time-box .box-text .text h2{
         font-size: 20px;
         font-weight: var(--fw-bold);
+        color: var(--color-secondary);
     }
 
     .timeline-wrapper .time-box .box-text .text span{
