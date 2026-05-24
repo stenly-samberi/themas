@@ -12,27 +12,47 @@
 </head>
 
 <body>
+ 
 
-<header>
-    <nav class="navbar" style="margin-left: 30px; margin-right: 30px;">
-        <div class="container nav-wrapper">
-            <a href="#" class="logo">Yaswar.id<span></span></a>
-            <div class="menu-wrapper">
-                <ul class="menu">
-                    <li class="menu-item"><a href="#home" class="menu-link active">Beranda</a></li>
-                    <li class="menu-item"><a href="#cerita" class="menu-link">Mempelai</a></li>
-                    <li class="menu-item"><a href="#timeline" class="menu-link">Timeline</a></li>
-                    <li class="menu-item"><a href="#galeri" class="menu-link">Galeri</a></li>
-                    <li class="menu-item"><a href="#lokasi" class="menu-link">Lokasi</a></li>
-                    <li class="menu-item"><a href="#gift" class="menu-link">Kado</a></li>
-                </ul>
-                <a href="#rsvp" class="btn-member">RSVP</a>
+
+    <header>
+        <nav class="navbar" style="margin-left: 30px; margin-right: 30px;">
+            <div class="container nav-wrapper">
+                <a href="#" class="logo">Yaswar.id<span></span></a>
+                <div class="menu-wrapper">
+                    <ul class="menu">
+                        <li class="menu-item"><a href="#home" class="menu-link active">Beranda</a></li>
+                        <li class="menu-item"><a href="#cerita" class="menu-link">Mempelai</a></li>
+                        <li class="menu-item"><a href="#timeline" class="menu-link">Timeline</a></li>
+                        <li class="menu-item"><a href="#galeri" class="menu-link">Galeri</a></li>
+                        <li class="menu-item"><a href="#lokasi" class="menu-link">Lokasi</a></li>
+                        <li class="menu-item"><a href="#gift" class="menu-link">Kado</a></li>
+                    </ul>
+                    <a href="#rsvp" class="btn-member">RSVP</a>
+                </div>
+                <div class="menu-toggle bx bxs-grid-alt">
+                </div>
             </div>
-            <div class="menu-toggle bx bxs-grid-alt">
+        </nav>
+
+
+        <section class="invitation-screen" id="invitationScreen">
+            <div class="invitation-wrapper">
+                <div class="logo">
+                    <label for="">Undangan Pernikahan</label>
+                </div>
+                <h2 class="greeting">Jacques & Ruth</h2>
+                <p class="message">Selasa, 26-May-2026</p>
+
+                <div class="guest-name">
+                    <h3>Halo, <span id="guestName">Tamu Istimewa</span></h3>
+                </div>
+
+                <button class="btn-detail" onclick="showDetail()">Buka Undangan</button>
             </div>
-        </div>
-    </nav>
-</header>
+        </section>
+
+    </header>
 
     <section class="home" id="home">
         <div class="container home-wrapper">
@@ -70,7 +90,6 @@
         </div>
     </section>
 
-
     <section class="cerita" id="cerita">
         <div class="text-heading">
             <h2 class="section-heading">Mempelai</h2>
@@ -107,10 +126,10 @@
                 </div>
             </div>
         </div>
-      </section>
+    </section>
 
      <section class="timeline" id="timeline">
-    <div class="text-heading">
+        <div class="text-heading">
         <h2 class="section-heading">Timeline</h2>
         <div class="tagline mb"></div>
         <p class="mt mb">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis, ipsam.</p>
@@ -159,9 +178,9 @@
             <p class="mt">Dress up dengan warna tema agar setiap foto penuh harmoni dan kebersamaan.</p>
         </div>
     </div>
-</section>
+     </section>
 
-<section class="gallery" id="galeri">
+    <section class="gallery" id="galeri">
                 <div class="text-heading ">
                     <h2 class="section-heading mb">Gallery</h2>
                     <p class="tagline mb">Kenangan indah yang ingin kami bagikan bersama Anda.</p>
@@ -198,10 +217,9 @@
                     </div>
 
                 </div>
-        </section>
+    </section>
 
-
-     <section class="location" id="lokasi">
+    <section class="location" id="lokasi">
         <div class="text-heading">
             <h2 class="section-heading">Lokasi Acara</h2>
             <div class="tagline"></div>
@@ -242,21 +260,18 @@
             </div> 
 
         </div>
-        </section>
+    </section>
 
-
-        
-
-        <section class="rsvp" id="rsvp">
+    <section class="rsvp" id="rsvp">
             <div class="text-heading ">
                     <h2 class="section-heading mb">RSVP</h2>
                     <div  class="tagline mb"></div>
                     <p>To help us prepare the event in the best possible way, we kindly request your confirmation of attendance through the following link :</p>
                     <a class="mt" href="http://" target="_blank" rel="noopener noreferrer">Click Here</a>
                 </div>
-        </section>
+    </section>
 
-        <section class="gift" id="gift">
+    <section class="gift" id="gift">
             <div class="text-heading ">
                     <h2 class="section-heading mb">Gift for the couple</h2>
                     <div  class="tagline mb"></div>
@@ -293,9 +308,9 @@
                     <!-- <label for="Copy">Copy</label> -->
                 </div>
             </div>
-        </section>
+    </section>
 
-        <section class="wish" id="wish">
+    <section class="wish" id="wish">
             <div class="text-heading ">
                     <h2 class="section-heading mb">Wish for the Couple</h2>
                     <p class="tagline mb"></p>
@@ -310,28 +325,41 @@
 
                 <button type="button" class="btn-primary">Kirim Sekarang</button>
             </div>
-        </section>
+    </section>
 
-        <div id="toast"></div>
-
+    <div id="toast"></div>
 
 <script>
+  // Toggle menu
   const menuOpen = document.querySelector('.menu-toggle');
   const menuwrapper = document.querySelector('.menu-wrapper');
-    menuOpen.addEventListener('click', () => {
+  menuOpen.addEventListener('click', () => {
     menuOpen.classList.toggle('bxs-grid-alt');
     menuOpen.classList.toggle('bx-x');
     menuwrapper.classList.toggle('active');
   });
 
+  function showDetail() {
+  // sembunyikan screen pembuka
+  document.getElementById("invitationScreen").style.display = "none";
+  // tampilkan konten utama
+  document.querySelector("header").style.display = "block";
+  document.querySelector(".home").style.display = "block";
+}
 
-    // Ambil semua tombol copy
+// Ambil nama tamu dari query string
+const params = new URLSearchParams(window.location.search);
+const guest = params.get("guest");
+if (guest) {
+  document.getElementById("guestName").textContent = guest;
+}
+
+  // Fungsi copy rekening
   document.querySelectorAll('.copy-btn').forEach(button => {
     button.addEventListener('click', () => {
       const accountNumber = button.getAttribute('data-account');
-      
       navigator.clipboard.writeText(accountNumber).then(() => {
-        showToast("Copied");
+        showToast("Nomor rekening disalin: " + accountNumber);
       }).catch(err => {
         showToast("Gagal menyalin nomor rekening");
         console.error(err);
@@ -339,6 +367,7 @@
     });
   });
 
+  // Fungsi toast
   function showToast(message) {
     const toast = document.getElementById("toast");
     toast.textContent = message;
@@ -348,6 +377,7 @@
     }, 3000); // hilang setelah 3 detik
   }
 </script>
+
 
 </body>
 </html>

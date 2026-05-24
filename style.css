@@ -40,6 +40,58 @@
     scroll-behavior: smooth;
     }
 
+    /* screeen */
+
+    .invitation-screen {
+  position: fixed;
+  inset: 0;
+  background: url('imgs/cop01.png') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.invitation-wrapper {
+  text-align: center;
+  padding: 40px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  max-width: 600px;
+}
+
+.invitation-wrapper .logo label {
+  font-family: var(--sunflower);
+  font-size: 30px;
+  font-weight: var(--fw-light);
+  color: var(--color-text-primary);
+}
+
+.greeting {
+  font-size: 50px;
+  color: var(--color-secondary);
+}
+
+.guest-name h3 {
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+.btn-detail {
+  background-color: var(--color-secondary);
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+
+    /* end screen */
+
     #toast {
   visibility: hidden;
   min-width: 100px;
@@ -655,16 +707,51 @@
 
    /*Versi Desktop Besar */
    @media screen and (max-width:1200px) {
-    
+        .greeting {
+    font-size: 42px;
+  }
+  .invitation-wrapper {
+    max-width: 500px;
+    padding: 30px;
+  }
    }
 
    /* Versi Leptop */
    @media screen and (max-width:1024px) {
-    
+    .greeting {
+    font-size: 36px;
+  }
+  .invitation-wrapper {
+    max-width: 450px;
+    padding: 25px;
+  }
+  .btn-detail {
+    font-size: 15px;
+    padding: 10px 18px;
+  }
    }
 
    /* Versi mobile */
    @media screen and (max-width:480px) {
+
+    .greeting {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+  .invitation-wrapper {
+    max-width: 90%;
+    padding: 15px;
+  }
+  .logo label {
+    font-size: 22px;
+  }
+  .guest-name h3 {
+    font-size: 14px;
+  }
+  .btn-detail {
+    font-size: 13px;
+    padding: 8px 14px;
+  }
 
     .cerita .cerita-wrapper{
         display: flex;
@@ -754,6 +841,21 @@
    /* Versi Tablet */
    @media screen and (max-width:768px) {
 
+    .greeting {
+    font-size: 30px;
+  }
+  .invitation-wrapper {
+    max-width: 400px;
+    padding: 20px;
+  }
+  .guest-name h3 {
+    font-size: 16px;
+  }
+  .btn-detail {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+
     .gallery-grid {
     flex-direction: column;
   }
@@ -809,8 +911,8 @@
         }
 
         .home-wrapper .heading{
-            font-size: 7rem;
-            line-height: 90px;
+            font-size: 4rem;
+            line-height: 80px;
         }
 
 
