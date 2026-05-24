@@ -195,7 +195,7 @@
 
     <section class="gallery" id="galeri">
                 <div class="text-heading ">
-                    <h2 class="section-heading mb">Gallery</h2>
+                    <h2 class="section-heading">Gallery</h2>
                     <div class="tagline mb"></div>
                     <p>Kenangan indah yang ingin kami bagikan bersama Anda.</p>
                 </div>
@@ -400,6 +400,22 @@ if (guest) {
       toast.className = toast.className.replace("show", "");
     }, 3000); // hilang setelah 3 detik
   }
+
+  // JavaScript untuk trigger animasi saat section masuk viewport
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        }
+    });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => {
+    section.classList.add("fade-in");
+    observer.observe(section);
+    });
+
 </script>
 
 
