@@ -30,8 +30,13 @@
 </head>
 
 <body>
+
+    <!-- ✅ Preloader ditempatkan di sini -->
+  <div id="preloader">
+    <div class="loader">Loading...</div>
+  </div>
  
-    <header>
+    <header class="fade-in">
         <nav class="navbar" style="margin-left: 30px; margin-right: 30px;">
             <div class="container nav-wrapper">
                 <a href="#" class="logo">Yaswar.id<span></span></a>
@@ -360,6 +365,11 @@
     <div id="toast"></div>
 
 <script>
+
+ window.onload = function() {
+      document.body.classList.add("loaded");
+    };
+
   // Toggle menu
   const menuOpen = document.querySelector('.menu-toggle');
   const menuwrapper = document.querySelector('.menu-wrapper');
@@ -368,6 +378,7 @@
     menuOpen.classList.toggle('bx-x');
     menuwrapper.classList.toggle('active');
   });
+
 
   const audio = document.getElementById("weddingMusic");
   // Atur volume default saat undangan dibuka

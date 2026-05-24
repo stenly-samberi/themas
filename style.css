@@ -39,6 +39,45 @@
     html {
     scroll-behavior: smooth;
     }
+
+    /* ===== Preloader ===== */
+#preloader {
+  position: fixed;
+  inset: 0; /* top, right, bottom, left = 0 */
+  background: var(--color-soft); /* warna latar belakang */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999; /* paling atas */
+}
+
+/* Loader animasi sederhana */
+.loader {
+  font-size: 18px;
+  color: var(--color-accent);
+  font-family: var(--font-body);
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Sembunyikan preloader setelah body punya class 'loaded' */
+body.loaded #preloader {
+  display: none;
+}
+
+/* Efek fade-in untuk konten utama */
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+body.loaded .fade-in {
+  opacity: 1;
+}
+
     
 
     /* screeen */
