@@ -41,37 +41,47 @@
     }
 
     /* screeen */
-
-    .invitation-screen {
+   .invitation-screen {
   position: fixed;
   inset: 0;
+  height: 100vh;
+  width: 100%;
   background: url('imgs/cop01.png') no-repeat center center;
   background-size: cover;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end; /* konten di bawah */
   z-index: 9999;
+  overflow: hidden;
+}
+
+/* Gradasi dari bawah */
+.gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
 }
 
 .invitation-wrapper {
+  position: relative;
+  z-index: 2;
   text-align: center;
-  padding: 40px;
-  background: rgba(255,255,255,0.85);
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-  max-width: 600px;
+  padding: 40px 20px;
+  color: #fff;
+  max-width: 700px;
+  animation: fadeIn 1.5s ease-in-out;
 }
 
-.invitation-wrapper .logo label {
-  font-family: var(--sunflower);
-  font-size: 30px;
-  font-weight: var(--fw-light);
-  color: var(--color-text-primary);
+.couple-name {
+  font-size: 48px;
+  
+  margin: 20px 0;
+  color: #ffd700; /* warna emas */
 }
 
-.greeting {
-  font-size: 50px;
-  color: var(--color-secondary);
+.date {
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
 .guest-name h3 {
@@ -83,11 +93,32 @@
   background-color: var(--color-secondary);
   color: #fff;
   border: none;
-  padding: 12px 20px;
+  padding: 12px 24px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
+  transition: transform 0.3s, background-color 0.3s;
 }
+
+.btn-detail:hover {
+  background-color: var(--color-accent);
+  transform: scale(1.05);
+}
+
+.note {
+  font-size: 12px;
+  margin-top: 15px;
+  opacity: 0.8;
+}
+
+/* Animasi */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+
 
 
     /* end screen */
