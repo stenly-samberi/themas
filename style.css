@@ -27,7 +27,7 @@
 
     /* ✨ UI Helpers */
     --border-radius: 12px;
-    --transition-fast: 0.3s ease;
+    --transition-fast: 0.3s ease;}
 
 
    body{
@@ -41,7 +41,7 @@
     }
 
     /* screeen */
-   .invitation-screen {
+    .invitation-screen {
   position: fixed;
   inset: 0;
   height: 100vh;
@@ -55,7 +55,6 @@
   overflow: hidden;
 }
 
-/* Gradasi dari bawah */
 .gradient-overlay {
   position: absolute;
   inset: 0;
@@ -72,9 +71,16 @@
   animation: fadeIn 1.5s ease-in-out;
 }
 
+.invitation-wrapper label {
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
 .couple-name {
   font-size: 48px;
-  
+  font-family: var(--sunflower);
   margin: 20px 0;
   color: #ffd700; /* warna emas */
 }
@@ -116,10 +122,6 @@
   from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
-
-
-
 
     /* end screen */
 
@@ -738,52 +740,36 @@
 
    /*Versi Desktop Besar */
    @media screen and (max-width:1200px) {
-        .greeting {
-    font-size: 42px;
-  }
-  .invitation-wrapper {
-    max-width: 500px;
-    padding: 30px;
-  }
+        /* screen start */
+            .couple-name { font-size: 42px; }
+  .invitation-wrapper { max-width: 600px; }
+        /* screen end */
    }
 
    /* Versi Leptop */
    @media screen and (max-width:1024px) {
-    .greeting {
-    font-size: 36px;
-  }
-  .invitation-wrapper {
-    max-width: 450px;
-    padding: 25px;
-  }
-  .btn-detail {
-    font-size: 15px;
-    padding: 10px 18px;
-  }
-   }
+        /* screen start */
+        .couple-name { font-size: 36px; }
+  .date { font-size: 18px; }
+  .btn-detail { font-size: 15px; padding: 10px 20px; }
+        /* screen end */
 
    /* Versi mobile */
    @media screen and (max-width:480px) {
 
-    .greeting {
-    font-size: 24px;
-    line-height: 1.2;
-  }
-  .invitation-wrapper {
-    max-width: 90%;
-    padding: 15px;
-  }
-  .logo label {
-    font-size: 22px;
-  }
-  .guest-name h3 {
-    font-size: 14px;
-  }
-  .btn-detail {
-    font-size: 13px;
-    padding: 8px 14px;
-  }
 
+    /* screen :start */
+
+    .invitation-wrapper { padding: 20px 10px; max-width: 95%; }
+  .couple-name { font-size: 24px; }
+  .date { font-size: 14px; }
+  .guest-name h3 { font-size: 14px; }
+  .btn-detail { font-size: 13px; padding: 8px 14px; }
+  .note { font-size: 11px; }
+
+    /* screen :end */
+
+  
     .cerita .cerita-wrapper{
         display: flex;
         flex-direction: column;
@@ -872,20 +858,14 @@
    /* Versi Tablet */
    @media screen and (max-width:768px) {
 
-    .greeting {
-    font-size: 30px;
-  }
-  .invitation-wrapper {
-    max-width: 400px;
-    padding: 20px;
-  }
-  .guest-name h3 {
-    font-size: 16px;
-  }
-  .btn-detail {
-    font-size: 14px;
-    padding: 10px 16px;
-  }
+    /* screen start */
+    .couple-name { font-size: 30px; }
+  .date { font-size: 16px; }
+  .guest-name h3 { font-size: 16px; }
+  .btn-detail { font-size: 14px; padding: 10px 18px; }
+    /* screen end */
+
+
 
     .gallery-grid {
     flex-direction: column;
