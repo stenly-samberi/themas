@@ -32,6 +32,7 @@
             </div>
         </div>
     </nav>
+</header>
 
     <section class="home" id="home">
         <div class="container home-wrapper">
@@ -68,7 +69,7 @@
             </div>
         </div>
     </section>
-</header>
+
 
     <section class="cerita" id="cerita">
         <div class="text-heading">
@@ -79,7 +80,7 @@
 
         <div class="container cerita-wrapper mt">
             <div class="content-left mt">
-                <img style="border-radius: 10px;" class="" src="imgs/img2.png" alt="" srcset="">
+                <img style="border-radius: 10px;" class="" src="imgs/cop02.png" alt="" srcset="">
             </div>
             <div class="content-right mt">
                 <!-- <p class="save-date">Save Date!</p> -->
@@ -127,7 +128,7 @@
                     <span>10:00 AM</span>
                 </div>
             </div>
-            <p>Pemberkatan & pengucapan janji suci bersama keluarga dan teman dekat.</p>
+            <p class="mt">Pemberkatan & pengucapan janji suci bersama keluarga dan teman dekat.</p>
         </div>
 
         <!-- Reception -->
@@ -141,7 +142,7 @@
                     <span>12:00 PM</span>
                 </div>
             </div>
-            <p>Makan siang, ucapan salam, dan sesi foto bersama pasangan pengantin. </p>
+            <p class="mt">Makan siang, ucapan salam, dan sesi foto bersama pasangan pengantin. </p>
         </div>
 
         <!-- Dresscode -->
@@ -155,7 +156,7 @@
                     <span>Kuning Gold, Hijau Botol, Merah Maroon</span>
                 </div>
             </div>
-            <p>Dress up dengan warna tema agar setiap foto penuh harmoni dan kebersamaan.</p>
+            <p class="mt">Dress up dengan warna tema agar setiap foto penuh harmoni dan kebersamaan.</p>
         </div>
     </div>
 </section>
@@ -169,7 +170,7 @@
                 <div class="gallery-grid mt">
                     <!-- Foto/video besar kiri -->
                     <div class="gallery-item big">
-                        <img src="imgs/img2.png" alt="Gallery Big">
+                        <img src="imgs/cop01.png" alt="Gallery Big">
                         <!-- atau video -->
                         <!-- <video controls>
                             <source src="video/gallery.mp4" type="video/mp4">
@@ -219,7 +220,7 @@
 
                 <h1>Gereja GKI Martin Luther Sentani</h1>
                 <label for="">Jl. Raya Kemiri No.53, Hinekombe, Kec. Sentani, Kabupaten Jayapura, Papua 99352</label>
-                <a href="https://maps.app.goo.gl/cZ3TvPNK89tucdZE6" target="_blank" rel="noopener noreferrer">Show location</a>
+                <a href="https://maps.app.goo.gl/ejAUxWF1tJrWppJg8" target="_blank" rel="noopener noreferrer">Show location</a>
               
                 <!-- <div class="map-wrapper">
                     <iframe 
@@ -249,26 +250,30 @@
         <section class="rsvp" id="rsvp">
             <div class="text-heading ">
                     <h2 class="section-heading mb">RSVP</h2>
-                    <p class="tagline mb">To help us prepare the event in the best possible way, we kindly request your confirmation of attendance through the following link :</p>
-                    <a href="http://" target="_blank" rel="noopener noreferrer">Click Here</a>
+                    <div  class="tagline mb"></div>
+                    <p>To help us prepare the event in the best possible way, we kindly request your confirmation of attendance through the following link :</p>
+                    <a class="mt" href="http://" target="_blank" rel="noopener noreferrer">Click Here</a>
                 </div>
         </section>
 
         <section class="gift" id="gift">
             <div class="text-heading ">
                     <h2 class="section-heading mb">Gift for the couple</h2>
-                    <p class="tagline mb">For those who wish to offer a gift to the couple, it can be done through :</p>
+                    <div  class="tagline mb"></div>
+                    <p class="mb">For those who wish to offer a gift to the couple, it can be done through :</p>
             </div>
 
-            <div class="container-wrapper">
+            <div class="container-wrapper mt">
                 <div class="card payment">
                     <img src="imgs/icons/bank-papua.png" alt="" srcset="">
                         <div class="payment-text">
                             <h2>Ruth Catrin Samberi</h2>
                             <label for="">7010207160193</label>
                         </div>
-                    <label for="Copy">Copy</label>
+                    <label class="copy-btn" data-account="7010207160193" for="">Copy</label>
                 </div>
+
+                
 
                 <div class="card payment">
                     <img src="imgs/icons/bank-mandiri.png" alt="" srcset="">
@@ -276,7 +281,7 @@
                             <h2>Jacques Gerteen Awes</h2>
                             <label for="">1540016814281</label>
                         </div>
-                    <label for="Copy">Copy</label>
+                    <label class="copy-btn" data-account="1540016814281" for="">Copy</label>
                 </div>
 
                 <div class="card payment">
@@ -307,6 +312,9 @@
             </div>
         </section>
 
+        <div id="toast"></div>
+
+
 <script>
   const menuOpen = document.querySelector('.menu-toggle');
   const menuwrapper = document.querySelector('.menu-wrapper');
@@ -315,6 +323,30 @@
     menuOpen.classList.toggle('bx-x');
     menuwrapper.classList.toggle('active');
   });
+
+
+    // Ambil semua tombol copy
+  document.querySelectorAll('.copy-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const accountNumber = button.getAttribute('data-account');
+      
+      navigator.clipboard.writeText(accountNumber).then(() => {
+        showToast("Copied");
+      }).catch(err => {
+        showToast("Gagal menyalin nomor rekening");
+        console.error(err);
+      });
+    });
+  });
+
+  function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.className = "show";
+    setTimeout(() => {
+      toast.className = toast.className.replace("show", "");
+    }, 3000); // hilang setelah 3 detik
+  }
 </script>
 
 </body>
