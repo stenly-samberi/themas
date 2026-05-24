@@ -36,25 +36,31 @@
         </nav>
 
 
- <section class="invitation-screen" id="invitationScreen">
-  <div class="gradient-overlay"></div>
-  <div class="invitation-wrapper">
-    <!-- Nama pasangan -->
-     <label for="">THE WEDDING OF</label>
-    <h1 class="couple-name">Jacques & Ruth</h1>
-    <p class="date">Selasa, 26-May-2026</p>
+    <section class="invitation-screen" id="invitationScreen">
+    <div class="gradient-overlay"></div>
+    <div class="invitation-wrapper">
+        <!-- Nama pasangan -->
+        <label for="">THE WEDDING OF</label>
+        <h1 class="couple-name">Jacques & Ruth</h1>
+        <p class="date">Selasa, 26-May-2026</p>
 
-    <!-- Nama tamu -->
-    <div class="guest-name">
-      <h3>Kepada yang terhormat <span id="guestName">Tamu Undangan</span></h3>
+        <!-- Nama tamu -->
+        <div class="guest-name">
+        <h3>Kepada yang terhormat <span id="guestName">Tamu Undangan</span></h3>
+        </div>
+
+        <!-- Tombol -->
+        <button class="btn-detail" onclick="showDetail()">🔒 Buka Undangan</button>
+
+        <p class="note">*Mohon maaf jika terdapat kesalahan penulisan nama & gelar</p>
     </div>
+    </section>
 
-    <!-- Tombol -->
-    <button class="btn-detail" onclick="showDetail()">🔒 Buka Undangan</button>
+    <audio id="weddingMusic" autoplay loop>
+        <source src="music/allofme.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung pemutar audio.
+    </audio>
 
-    <p class="note">*Mohon maaf jika terdapat kesalahan penulisan nama & gelar</p>
-  </div>
-</section>
 
 
 
@@ -110,7 +116,7 @@
             </div>
             <div class="content-right mt">
                 <!-- <p class="save-date">Save Date!</p> -->
-                <label class="mb">Cinta kami akan ditayangkan di panggung kehidupan dan Anda adalah tamu istimewa yang kami nantikan. Bersama Anda, perayaan pernikahan kami akan semakin bermakna. Mari kita bersama-sama menyaksikan Jacques & Ruth berkata: <b>"Saya Bersedia."</b></label>
+                <label class="mb">Cinta kami akan ditayangkan di panggung kehidupan dan Anda adalah tamu istimewa yang kami nantikan. Bersama Anda, perayaan pernikahan kami akan semakin bermakna. Mari kita bersama-sama menyaksikan Jacques & Ruth berkata : <b>“Saya Bersedia.” 💍</b></label>
 
                 <div class="cerita-box mt">
                     <div class="box mt">
@@ -137,9 +143,9 @@
 
      <section class="timeline" id="timeline">
         <div class="text-heading">
-        <h2 class="section-heading">Timeline</h2>
+        <h2 class="section-heading">Rangkaian Acara</h2>
         <div class="tagline mb"></div>
-        <p class="mt mb">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis, ipsam.</p>
+        <p class="mt mb">Berikut adalah susunan acara pernikahan yang telah kami siapkan :</p>
     </div>
 
     <div class="container timeline-wrapper mt">
@@ -273,16 +279,16 @@
             <div class="text-heading ">
                     <h2 class="section-heading mb">RSVP</h2>
                     <div  class="tagline mb"></div>
-                    <p>To help us prepare the event in the best possible way, we kindly request your confirmation of attendance through the following link :</p>
+                    <p>Untuk membantu kami mempersiapkan acara dengan sebaik-baiknya, kami mohon kesediaan Anda untuk memberikan konfirmasi kehadiran melalui tautan berikut :</p>
                     <a class="mt" href="http://" target="_blank" rel="noopener noreferrer">Click Here</a>
                 </div>
     </section>
 
     <section class="gift" id="gift">
             <div class="text-heading ">
-                    <h2 class="section-heading mb">Gift for the couple</h2>
+                    <h2 class="section-heading mb">Hadiah untuk Pasangan</h2>
                     <div  class="tagline mb"></div>
-                    <p class="mb">For those who wish to offer a gift to the couple, it can be done through :</p>
+                    <p class="mb">Bagi yang ingin memberikan tanda kasih kepada pasangan, dapat dilakukan melalui :</p>
             </div>
 
             <div class="container-wrapper mt">
@@ -319,15 +325,15 @@
 
     <section class="wish" id="wish">
             <div class="text-heading ">
-                    <h2 class="section-heading mb">Wish for the Couple</h2>
+                    <h2 class="section-heading mb">Ucapan & Doa untuk Pasangan</h2>
                     <p class="tagline mb"></p>
             </div>
 
             <div class="container-wrapper">
-                <label for="">Nama</label>
+                <label for="">Name</label>
                 <input class="text-input" type="text">
 
-                <label for="">Pesan</label>
+                <label for="">Message</label>
                 <textarea class="text-area"></textarea>
 
                 <button type="button" class="btn-primary">Kirim Sekarang</button>
@@ -346,12 +352,20 @@
     menuwrapper.classList.toggle('active');
   });
 
+  const audio = document.getElementById("weddingMusic");
+  // Atur volume default saat undangan dibuka
+  audio.volume = 0.3; // 30% dari volume penuh
+
   function showDetail() {
   // sembunyikan screen pembuka
   document.getElementById("invitationScreen").style.display = "none";
   // tampilkan konten utama
   document.querySelector("header").style.display = "block";
   document.querySelector(".home").style.display = "block";
+
+   // Mulai musik setelah tombol ditekan
+    audio.play();
+
 }
 
 // Ambil nama tamu dari query string
@@ -373,6 +387,8 @@ if (guest) {
       });
     });
   });
+
+  
 
   // Fungsi toast
   function showToast(message) {
